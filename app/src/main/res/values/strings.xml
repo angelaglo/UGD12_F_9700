@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TUGAS_BESAR</string>
+
+    <string name="daftarRawatInap">Daftar Rawat Inap</string>
+    <string name="rawatInap">Pilih kamar opname</string>
+    <string name="daftarRawatJalan">Daftar Rawat Jalan</string>
+    <string name="nomorAntrian">Dapatkan nomor antrianmu sekarang</string>
+    <string name="daftarLaboratorium">Daftar Laboratorium</string>
+    <string name="checkUp">Cek Kesehatanmu Keseluruhan</string>
+    <string name="deskripsiApp">Kami akan memberikan pelayanan komprehensif dan terpadu dengan standar pelayanan terakreditasi. Adapun layanan yang kami sediakan adalah:</string>
+</resources>
