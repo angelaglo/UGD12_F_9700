@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">TUGAS_BESAR</string>
+    <string name="mapbox_access_token">sk.eyJ1Ijoic3RldmFuaWxpbHlhbmlzIiwiYSI6ImNrZnFjZTQ1ZTBqaG8ydnA2bmUwNXZuZHIifQ.LPMFRMf18ox18KMTzuFkwg</string>
+
 
     <string name="daftarRawatInap">Daftar Rawat Inap</string>
     <string name="rawatInap">Pilih kamar opname</string>
     <string name="daftarRawatJalan">Daftar Rawat Jalan</string>
     <string name="nomorAntrian">Dapatkan nomor antrianmu sekarang</string>
     <string name="daftarLaboratorium">Daftar Laboratorium</string>
-    <string name="checkUp">Cek Kesehatanmu Keseluruhan</string>
+    <string name="checkUp">Check Kesehatanmu rutin</string>
+    <string name="location">Lokasi kami</string>
+    <string name="deskLocation">Navigasikan rumahmu ke rumah sakit kami</string>
     <string name="deskripsiApp">Kami akan memberikan pelayanan komprehensif dan terpadu dengan standar pelayanan terakreditasi. Adapun layanan yang kami sediakan adalah:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
