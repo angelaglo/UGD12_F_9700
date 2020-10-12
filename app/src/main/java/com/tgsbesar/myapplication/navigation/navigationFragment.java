@@ -9,9 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.tgsbesar.myapplication.R;
-import com.tgsbesar.myapplication.lokasiRS;
-
-import java.util.zip.Inflater;
 
 
 public class navigationFragment extends Fragment {

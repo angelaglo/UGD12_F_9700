@@ -13,9 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tgsbesar.myapplication.R;
-import com.tgsbesar.myapplication.laboratoriumActivity;
-import com.tgsbesar.myapplication.rawatInap;
-import com.tgsbesar.myapplication.rawatJalan;
+import com.tgsbesar.myapplication.menu_rawatInap.daftarRawatInap;
+import com.tgsbesar.myapplication.menu_laboratorium.laboratoriumActivity;
+import com.tgsbesar.myapplication.menu_rawatJalan.rawatJalan;
 
 
 public class homeFragment extends Fragment {
@@ -42,7 +42,7 @@ public class homeFragment extends Fragment {
         card_rawatInap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), rawatInap.class);
+                Intent i = new Intent(getActivity(), daftarRawatInap.class);
                 startActivity(i);
             }
         });

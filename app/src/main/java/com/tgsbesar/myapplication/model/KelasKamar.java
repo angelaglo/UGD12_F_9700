@@ -1,0 +1,39 @@
+package com.tgsbesar.myapplication.model;
+
+import java.io.Serializable;
+
+public class KelasKamar implements Serializable {
+    public String tipe_kamar;
+    public double harga_kamar;
+    public String fasilitas_kamar;
+
+    public KelasKamar(String tipe_kamar, double harga_kamar, String fasilitas_kamar){
+        this.tipe_kamar=tipe_kamar;
+        this.harga_kamar=harga_kamar;
+        this.fasilitas_kamar=fasilitas_kamar;
+    }
+
+    public String getTipe_kamar() {
+        return tipe_kamar;
+    }
+
+    public void setTipe_kamar(String tipe_kamar) {
+        this.tipe_kamar = tipe_kamar;
+    }
+
+    public double getHarga_kamar() {
+        return harga_kamar;
+    }
+
+    public void setHarga_kamar(double harga_kamar) {
+        this.harga_kamar = harga_kamar;
+    }
+
+    public String getFasilitas_kamar() {
+        return fasilitas_kamar;
+    }
+
+    public void setFasilitas_kamar(String fasilitas_kamar) {
+        this.fasilitas_kamar = fasilitas_kamar;
+    }
+}

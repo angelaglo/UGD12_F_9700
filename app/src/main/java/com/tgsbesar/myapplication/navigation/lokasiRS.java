@@ -1,4 +1,4 @@
-package com.tgsbesar.myapplication;
+package com.tgsbesar.myapplication.navigation;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -44,6 +44,7 @@ import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher;
 import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
 import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
+import com.tgsbesar.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
