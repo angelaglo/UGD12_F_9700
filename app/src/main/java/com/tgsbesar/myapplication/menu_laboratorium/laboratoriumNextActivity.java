@@ -3,6 +3,7 @@ package com.tgsbesar.myapplication.menu_laboratorium;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -84,5 +85,16 @@ public class laboratoriumNextActivity extends AppCompatActivity implements Adapt
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         message = adapterView.getItemAtPosition(i).toString();
         Toast.makeText(adapterView.getContext(), "Jam " + message, Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -106,6 +106,7 @@ public class lokasiRS extends AppCompatActivity implements OnMapReadyCallback, P
         });
 
         btn_nav = findViewById(R.id.startButton);
+        btn_nav.setEnabled(true);
         btn_nav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,6 +117,7 @@ public class lokasiRS extends AppCompatActivity implements OnMapReadyCallback, P
                            .build();
                    // Call this method with Context from within an Activity
                    NavigationLauncher.startNavigation(lokasiRS.this, options);
+
                }
             }
         });
@@ -146,18 +148,19 @@ public class lokasiRS extends AppCompatActivity implements OnMapReadyCallback, P
                         List<Feature> features = new ArrayList<>();
                         enableLocationComponent(style);
                         initLayers(style);
+                        getRoute(getPoint(),destinationPoint);
 
                         mapboxMap.addOnMapClickListener(new MapboxMap.OnMapClickListener() {
                             private Point point = getPoint() ;
                             @Override
                             public boolean onMapClick(@NonNull LatLng point) {
-                                Point destinationPoint = Point.fromLngLat(point.getLongitude(), point.getLatitude());
+                                Point originPoint = Point.fromLngLat(point.getLongitude(), point.getLatitude());
                                 features.clear();
                                 features.add(Feature.fromGeometry(destinationPoint));
                                 GeoJsonSource source = mapboxMap.getStyle().getSourceAs(DESTINATION_SOURCE_ID);
                                 source.setGeoJson(FeatureCollection.fromFeatures(features));
-                                getRoute(this.point, destinationPoint);
-                                btn_nav.setEnabled(true);
+                                getRoute(originPoint, destinationPoint);
+
                                 btn_nav.setBackgroundResource(R.color.colorPrimary);
                                 return true;
                             }
@@ -223,11 +226,9 @@ public class lokasiRS extends AppCompatActivity implements OnMapReadyCallback, P
                     Pake fungsi getroute untuk buat route nya
                      */
                     Point originPoint = Point.fromLngLat(((Point) carmenFeature.geometry()).longitude(), ((Point) carmenFeature.geometry()).latitude());
-                    if(originPoint!=null){
-                    getRoute(originPoint,destinationPoint);
-                    }else{
-                        getRoute(this.point,destinationPoint);
-                    }
+
+                        getRoute(originPoint,destinationPoint);
+
                 }
             }
         }

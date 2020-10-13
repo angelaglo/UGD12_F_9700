@@ -2,10 +2,12 @@ package com.tgsbesar.myapplication.menu_rawatJalan;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -73,4 +75,5 @@ public class DokterAdapter extends RecyclerView.Adapter<DokterAdapter.MyViewHold
             itemView.setDtr(dtr);
         }
     }
+
 }
