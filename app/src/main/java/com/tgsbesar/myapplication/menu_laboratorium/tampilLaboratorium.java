@@ -63,6 +63,8 @@ public class tampilLaboratorium extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(tampilLaboratorium.this, MainActivity.class);
+                createNotificationChannel();
+                addNotification();
                 startActivity(i);
             }
         });

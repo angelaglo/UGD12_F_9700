@@ -115,7 +115,7 @@
                 android:layout_width="86dp"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
-                android:text="Jam" />
+                android:text="No Urut" />
             <TextView
                 android:id="@+id/txtNoUrut"
                 android:layout_width="wrap_content"
