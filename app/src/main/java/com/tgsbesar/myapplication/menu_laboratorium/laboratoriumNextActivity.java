@@ -23,10 +23,11 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 public class laboratoriumNextActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
-    String message;
+    String message, no_booking;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +70,8 @@ public class laboratoriumNextActivity extends AppCompatActivity implements Adapt
         drop.setAdapter(adapter);
         drop.setOnItemClickListener(this);
 
+        no_booking=String.valueOf(getRandomNumberInRange(1000,3000));
+
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,6 +79,7 @@ public class laboratoriumNextActivity extends AppCompatActivity implements Adapt
                 intent.putExtra("Jam",message);
                 intent.putExtra("Laboratorium",lab);
                 intent.putExtra("Tanggal",text.getText().toString());
+                intent.putExtra("no_book",no_booking);
                 startActivity(intent);
             }
         });
@@ -96,5 +100,14 @@ public class laboratoriumNextActivity extends AppCompatActivity implements Adapt
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
             Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
         }
+    }
+    private static int getRandomNumberInRange(int min, int max) {
+
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
     }
 }

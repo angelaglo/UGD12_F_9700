@@ -25,7 +25,7 @@ import com.tgsbesar.myapplication.model.KelasKamar;
 import java.util.Random;
 
 public class tampilRawatInap extends AppCompatActivity {
-    int no_booking;
+    String no_booking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +34,23 @@ public class tampilRawatInap extends AppCompatActivity {
 
         KelasKamar kmr = (KelasKamar) getIntent().getSerializableExtra("KelasKamar");
         String tanggal = getIntent().getStringExtra("Tanggal");
+        String no_book = getIntent().getStringExtra("no_book");
 
         TextView txt_TipeKamar = (TextView) findViewById(R.id.txtKelasKamar);
         TextView txt_Fasilitas = (TextView) findViewById(R.id.txtFasilitas);
         TextView txt_Harga = (TextView)findViewById(R.id.txtHarga) ;
         TextView txt_tanggal = (TextView) findViewById(R.id.txtTanggal);
+        TextView txt_noBooking = (TextView) findViewById(R.id.txtNoBookingRI);
 
 
         txt_TipeKamar.setText(kmr.tipe_kamar);
         txt_Fasilitas.setText(kmr.fasilitas_kamar);
         txt_Harga.setText(String.valueOf(kmr.harga_kamar));
         txt_tanggal.setText(tanggal);
+        txt_noBooking.setText(no_book);
 
+
+        no_booking=no_book;
         Button btn_save = (Button)findViewById(R.id.buttonSendRI);
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +98,7 @@ public class tampilRawatInap extends AppCompatActivity {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_logo_background)
                 .setContentTitle("Pendaftaran Rawat Inap Sukses!")
-                .setContentText("No Booking anda "+getRandomNumberInRange(1000,3000))
+                .setContentText("No Booking anda "+no_booking)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         Intent notificationIntent= new Intent(this,MainActivity.class);
@@ -104,13 +109,5 @@ public class tampilRawatInap extends AppCompatActivity {
         manager.notify(0,builder.build());
     }
 
-    private static int getRandomNumberInRange(int min, int max) {
 
-        if (min >= max) {
-            throw new IllegalArgumentException("max must be greater than min");
-        }
-
-        Random r = new Random();
-        return r.nextInt((max - min) + 1) + min;
-    }
 }

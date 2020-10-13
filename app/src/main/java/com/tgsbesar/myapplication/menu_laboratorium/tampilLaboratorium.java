@@ -41,19 +41,23 @@ public class tampilLaboratorium extends AppCompatActivity {
         Laboratorium lab= (Laboratorium) getIntent().getSerializableExtra("Laboratorium");
         String jam = getIntent().getStringExtra("Jam");
         String tanggal = getIntent().getStringExtra("Tanggal");
+        String no_book = getIntent().getStringExtra("no_book");
 
         TextView txt_PaketCheckUp = (TextView) findViewById(R.id.txtPaketCheckUp);
         TextView txt_Deskripsi = (TextView) findViewById(R.id.txtDeskripsi);
         TextView txt_harga = (TextView)findViewById(R.id.hargaPaket);
         TextView txt_tanggalCheckUp = (TextView) findViewById(R.id.txtTanggalCheckUp);
         TextView txt_jamCheckUp = (TextView) findViewById(R.id.txtJamCheckUp);
+        TextView txt_noBooking = (TextView) findViewById(R.id.txtNoBooking);
 
         txt_PaketCheckUp.setText(lab.kategori);
         txt_Deskripsi.setText(lab.deskripsi);
         txt_harga.setText(String.valueOf(lab.harga_test));
         txt_tanggalCheckUp.setText(tanggal);
         txt_jamCheckUp.setText(jam);
+        txt_noBooking.setText(no_book);
 
+        no_booking=no_book;
         Button btn_save = (Button)findViewById(R.id.buttonSendLab);
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +103,7 @@ public class tampilLaboratorium extends AppCompatActivity {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_logo_background)
                 .setContentTitle("Pendaftaran Check Up Sukses!")
-                .setContentText("No Booking anda "+getRandomNumberInRange(1000,3000))
+                .setContentText("No Booking anda "+no_booking)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         Intent notificationIntent= new Intent(this,MainActivity.class);
@@ -110,13 +114,5 @@ public class tampilLaboratorium extends AppCompatActivity {
         manager.notify(0,builder.build());
     }
 
-    private static int getRandomNumberInRange(int min, int max) {
 
-        if (min >= max) {
-            throw new IllegalArgumentException("max must be greater than min");
-        }
-
-        Random r = new Random();
-        return r.nextInt((max - min) + 1) + min;
-    }
 }

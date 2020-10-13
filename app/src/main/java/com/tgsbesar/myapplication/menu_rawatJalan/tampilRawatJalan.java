@@ -24,7 +24,7 @@ import java.util.Random;
 
 public class tampilRawatJalan extends AppCompatActivity {
     private String nama_dr, jabatan_dr, jam_rj, tanggal_rj;
-    private int no_antrian=1;
+    private String no_antrian;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,21 +33,25 @@ public class tampilRawatJalan extends AppCompatActivity {
         Dokter dtr = (Dokter) getIntent().getSerializableExtra("Dokter");
         String jam = getIntent().getStringExtra("Jam");
         String tanggal = getIntent().getStringExtra("Tanggal");
+        String no_urut = getIntent().getStringExtra("no_urut");
 
         TextView txt_spesialis = (TextView) findViewById(R.id.txtSpesialis);
         TextView txt_dokter = (TextView) findViewById(R.id.txtDokter);
         TextView txt_tanggal = (TextView) findViewById(R.id.txtTanggal);
         TextView txt_jam = (TextView) findViewById(R.id.txtJam);
+        TextView txt_noBooking = (TextView) findViewById(R.id.txtNoUrut);
 
         txt_spesialis.setText(dtr.jabatan);
         txt_dokter.setText(dtr.nama);
         txt_tanggal.setText(tanggal);
         txt_jam.setText(jam);
+        txt_noBooking.setText(no_urut);
+
         nama_dr=dtr.nama;
         jabatan_dr=dtr.jabatan;
         tanggal_rj=tanggal;
         jam_rj=jam;
-
+        no_antrian=no_urut;
         Button btn_save = (Button)findViewById(R.id.buttonSendRJ);
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +98,7 @@ public class tampilRawatJalan extends AppCompatActivity {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_logo_background)
                 .setContentTitle("Pendaftaran Rawat Jalan Sukses!")
-                .setContentText("No Antrian: "+getRandomNumberInRange(1,100)+" Pemeriksaan dengan "+nama_dr)
+                .setContentText("No Antrian: "+no_antrian+" Pemeriksaan dengan "+nama_dr)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         Intent notificationIntent= new Intent(this,MainActivity.class);
@@ -105,13 +109,5 @@ public class tampilRawatJalan extends AppCompatActivity {
         manager.notify(0,builder.build());
     }
 
-    private static int getRandomNumberInRange(int min, int max) {
 
-        if (min >= max) {
-            throw new IllegalArgumentException("max must be greater than min");
-        }
-
-        Random r = new Random();
-        return r.nextInt((max - min) + 1) + min;
-    }
 }
