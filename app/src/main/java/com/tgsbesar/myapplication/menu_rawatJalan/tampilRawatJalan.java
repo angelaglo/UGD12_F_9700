@@ -90,11 +90,11 @@ public class tampilRawatJalan extends AppCompatActivity {
     }
 
     private void addNotification(){
-        no_antrian=getRandomNumberInRange(1,100);
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_logo_background)
                 .setContentTitle("Pendaftaran Rawat Jalan Sukses!")
-                .setContentText("No Antrian: "+no_antrian+"Pemeriksaan dengan "+nama_dr)
+                .setContentText("No Antrian: "+getRandomNumberInRange(1,100)+" Pemeriksaan dengan "+nama_dr)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         Intent notificationIntent= new Intent(this,MainActivity.class);

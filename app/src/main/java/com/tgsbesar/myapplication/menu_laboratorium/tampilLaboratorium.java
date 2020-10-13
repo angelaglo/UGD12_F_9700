@@ -94,11 +94,12 @@ public class tampilLaboratorium extends AppCompatActivity {
     }
 
     private void addNotification(){
-        no_booking=getRandomNumberInRange(1000,3000);
+
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_logo_background)
                 .setContentTitle("Pendaftaran Check Up Sukses!")
-                .setContentText("No Booking anda "+no_booking)
+                .setContentText("No Booking anda "+getRandomNumberInRange(1000,3000))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         Intent notificationIntent= new Intent(this,MainActivity.class);
