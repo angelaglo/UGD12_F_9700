@@ -24,7 +24,7 @@ public class User implements Serializable {
     public String umur;
 
     @ColumnInfo(name = "jeniskelamin")
-    public String jeniskelamin;
+    public int jeniskelamin;
 
     @ColumnInfo(name = "nohp")
     public String nohp;
@@ -52,9 +52,9 @@ public class User implements Serializable {
 
     public void setUmur(String umur){ this.umur = this.umur; }
 
-    public String getJeniskelamin() { return jeniskelamin; }
+    public int getJeniskelamin() { return jeniskelamin; }
 
-    public void setJeniskelamin(String jeniskelamin) {this.jeniskelamin = jeniskelamin;}
+    public void setJeniskelamin(int jeniskelamin) {this.jeniskelamin = jeniskelamin;}
 
     public String getNohp() { return nohp; }
 

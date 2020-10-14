@@ -48,7 +48,8 @@
             android:id="@+id/tv_passLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:errorEnabled="true"/>
+            app:errorEnabled="true"
+            android:inputType="textPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,6 +70,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <TextView
+            android:id="@+id/toRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Belum punya akun? Daftar disini!"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signIn"
+            app:layout_constraintVertical_bias="0.073"
+            tools:layout_editor_absoluteX="0dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
@@ -76,5 +88,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </FrameLayout>
+
 
 </FrameLayout>

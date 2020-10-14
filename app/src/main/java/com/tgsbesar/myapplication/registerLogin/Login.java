@@ -9,8 +9,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -27,7 +29,7 @@ public class Login extends AppCompatActivity {
 
     private TextInputEditText txtRMLogin, txtPassLogin;
     private TextInputLayout errorRMLog, errorPassLog;
-
+    private TextView registernext;
     private Button login;
     public static final String NORM = "norm";
 
@@ -44,19 +46,54 @@ public class Login extends AppCompatActivity {
 
         login = findViewById(R.id.signIn);
 
+        registernext = findViewById(R.id.toRegister);
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userLogin();
+                if(!validateForm())
+                {
+                    return;
+                }else{
+                    userLogin();
+                }
             }
         });
+
+        registernext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login.this,Register.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private boolean validateForm() {
+        boolean result = true;
+
+        if(TextUtils.isEmpty(txtRMLogin.getText().toString())){
+            result = false;
+            txtRMLogin.setError("Nomor rekam medis harus diisi");
+
+        }else{
+            txtRMLogin.setError(null);
+        }
+
+        if(TextUtils.isEmpty(txtPassLogin.getText().toString())){
+            result = false;
+            txtPassLogin.setError("Password harus diisi");
+
+        }else{
+            txtPassLogin.setError(null);
+        }
+
+        return result;
     }
 
     private void userLogin() {
         final String noRMLogin = txtRMLogin.getText().toString();
         final String passLogin = txtPassLogin.getText().toString();
-
-
 
         class UserLogin extends AsyncTask<Void, Void, User> {
 

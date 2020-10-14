@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -39,7 +40,12 @@ public class Register extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addUser();
+                if(!validateForm())
+                {
+                    return;
+                }else{
+                    addUser();
+                }
             }
         });
 
@@ -50,6 +56,28 @@ public class Register extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private boolean validateForm() {
+        boolean result = true;
+
+        if(TextUtils.isEmpty(txtRM.getText().toString())){
+            result = false;
+            txtRM.setError("Nomor rekam medis harus diisi");
+
+        }else{
+            txtRM.setError(null);
+        }
+
+        if(TextUtils.isEmpty(txtPass.getText().toString())){
+            result = false;
+            txtPass.setError("Password harus diisi");
+
+        }else{
+            txtPass.setError(null);
+        }
+
+        return result;
     }
 
 

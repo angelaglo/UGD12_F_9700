@@ -15,9 +15,12 @@ public interface UserDao {
     @Insert
     void insert(User user);
 
-    @Update
-    void update(User user);
-
     @Query("SELECT * FROM user where noRM=(:noRM) and password=(:password)")
     User login(String noRM, String password);
+
+    @Query("UPDATE user SET full_name=:fullname, umur=:umur, jeniskelamin=:jeniskelamin, nohp=:nohp, alamat=:alamat where noRM=(:noRM)")
+    void update(String noRM, String fullname, String umur, int jeniskelamin, String nohp, String alamat);
+
+    @Query("SELECT * FROM user where noRM=(:noRM)")
+    User search(String noRM);
 }
