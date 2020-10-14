@@ -11,21 +11,30 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.google.android.material.textview.MaterialTextView;
 import com.tgsbesar.myapplication.R;
+import com.tgsbesar.myapplication.database.Preferences;
 import com.tgsbesar.myapplication.menu_rawatInap.daftarRawatInap;
 import com.tgsbesar.myapplication.menu_laboratorium.laboratoriumActivity;
 import com.tgsbesar.myapplication.menu_rawatJalan.rawatJalan;
+import com.tgsbesar.myapplication.splashScreen;
 
 
 public class homeFragment extends Fragment {
 
     CardView card_rawatJalan, card_rawatInap, card_Laboratorium;
-
+    String norek;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        Preferences preferences = new Preferences(homeFragment.this.getContext());
+        norek = preferences.getKeyNorm();
+        final MaterialTextView Norekam = view.findViewById(R.id.noRekam);
+        Norekam.setText("Halo, "+norek);
+
 
         //menu rawat jalan
         card_rawatJalan = view.findViewById(R.id.card_rawatJalan);

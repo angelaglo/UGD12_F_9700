@@ -24,6 +24,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_margin="5dp">
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/noRekam"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="norekam"
+                    android:layout_marginBottom="15dp"
+                    android:textColor="@color/colorPrimary"/>
 
 
                 <com.google.android.material.textview.MaterialTextView
@@ -52,7 +60,6 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:textSize="10sp"
-                    android:layout_marginBottom="10dp"
                     android:textColor="@color/colorAccent" />
 
 
