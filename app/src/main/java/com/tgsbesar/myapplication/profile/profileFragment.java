@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.tgsbesar.myapplication.R;
+import com.tgsbesar.myapplication.registerLogin.Register;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -45,7 +46,7 @@ public class profileFragment extends Fragment {
     final String KEY_SAVED_RADIO_BUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
     private int checkedIndex;
 
-    private Button btn_save;
+    private Button btn_save, btn_logout;
 
 
     @Override
@@ -74,6 +75,7 @@ public class profileFragment extends Fragment {
         btn_save=view.findViewById(R.id.btn_save);
         radioGroup = view.findViewById(R.id.radGroup);
         radioGroup.setOnCheckedChangeListener(radioGrouoOnCheckedListener);
+        btn_logout =view.findViewById(R.id.btn_logout);
 
         //shared preference
         loadPreferences();
@@ -88,6 +90,14 @@ public class profileFragment extends Fragment {
                 }else{
                     savePreferences(KEY_SAVED_RADIO_BUTTON_INDEX, checkedIndex);
                 }
+            }
+        });
+
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Register.class);
+                startActivity(intent);
             }
         });
 
@@ -140,6 +150,7 @@ public class profileFragment extends Fragment {
 
         }
     }
+
 
 
 
