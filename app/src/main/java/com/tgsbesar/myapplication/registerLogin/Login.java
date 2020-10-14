@@ -78,10 +78,10 @@ public class Login extends AppCompatActivity {
                 }
                 else{
                     Preferences preferences = new Preferences(Login.this.getApplicationContext());
-                    preferences.setKeyNorm(user.getNoRM(),true);
+                    preferences.setKeyNorm(user.getNoRM());
                     Toast.makeText(getApplicationContext(),"Selamat datang, "+noRMLogin, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Login.this, MainActivity.class);
-                    intent.putExtra("norekam",noRMLogin);
+                    intent.putExtra("norekam",user.getNoRM());
                     startActivity(intent);
                 }
             }

@@ -30,22 +30,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Selamat Datang di Layanan App Mobile"
+                    android:textSize="10sp"
+                    android:textAlignment="center"
                     style="@style/TextAppearance.MaterialComponents.Body1"
                     android:textAllCaps="true"
                     />
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RS Tubes PBP"
+                    android:text="RS ATMA JAYA"
+                    android:textAlignment="center"
                     style="@style/TextAppearance.MaterialComponents.Headline4"/>
 
                 <com.google.android.material.textview.MaterialTextView
                     style="@style/TextAppearance.MaterialComponents.Body2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="15dp"
                     android:text="@string/deskripsiApp"
-                    android:textAlignment="viewStart"
+                    android:textAlignment="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:textSize="10sp"
+                    android:layout_marginBottom="10dp"
                     android:textColor="@color/colorAccent" />
 
 
@@ -55,9 +62,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-
-                android:layout_margin="15dp">
+                android:layout_margin="15dp"
+                android:orientation="vertical">
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_rawatJalan"
@@ -79,7 +85,6 @@
                             android:layout_width="50dp"
                             android:layout_height="match_parent"
                             android:src="@drawable/ic_baseline_accessibility_new_24" />
-
 
 
                         <LinearLayout
@@ -106,6 +111,7 @@
 
 
                         </LinearLayout>
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
@@ -119,14 +125,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    app:cardCornerRadius="10dp"
-                    android:clickable="true">
+                    android:clickable="true"
+                    app:cardCornerRadius="10dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_margin="10dp">
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
 
                         <!-- Media -->
 
@@ -171,14 +177,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    app:cardCornerRadius="10dp"
-                    android:clickable="true">
+                    android:clickable="true"
+                    app:cardCornerRadius="10dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_margin="10dp">
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
 
                         <!-- Media -->
 
@@ -210,6 +216,7 @@
                                 android:textColor="?android:attr/textColorSecondary" />
 
                         </LinearLayout>
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"

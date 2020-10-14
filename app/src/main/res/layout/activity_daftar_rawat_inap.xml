@@ -19,10 +19,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/TextAppearance.MaterialComponents.Headline3"
-            android:text="Plih tipe kamar"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textSize="20sp"
             android:textColor="@color/colorPrimaryDark"
-            android:layout_margin="10dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="PILIHAN TIPE KAMAR"
+            android:layout_margin="10dp" />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -19,9 +19,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/TextAppearance.MaterialComponents.Headline3"
-            android:text="Plih paket lab"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="PILIHAN LAB"
+            android:textSize="20sp"
             android:textColor="@color/colorPrimaryDark"
-            android:layout_margin="10dp"
             android:gravity="center"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

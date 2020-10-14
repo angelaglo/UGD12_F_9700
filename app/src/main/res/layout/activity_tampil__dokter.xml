@@ -23,8 +23,8 @@
             android:layout_marginTop="10dp"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
+            android:gravity="center"
             android:layout_marginLeft="5dp"
-            android:layout_marginStart="16dp"
             android:text="PILIHAN DOKTER"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
@@ -36,7 +36,7 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/juduldokter"
+
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="8dp"

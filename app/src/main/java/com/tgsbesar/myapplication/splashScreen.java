@@ -16,12 +16,12 @@ public class splashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Preferences preferences = new Preferences(splashScreen.this.getApplicationContext());
-        if(preferences.getKeyNorm() == false){
+        if(preferences.getKeyNorm().equals("")){
             Intent intent = new Intent(this, Register.class);
             startActivity(intent);
             finish();
         }
-        else if(preferences.getKeyNorm() == true){
+        else{
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();

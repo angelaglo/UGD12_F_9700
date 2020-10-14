@@ -27,6 +27,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="15dp"
                         android:text="@{kls.tipe_kamar}"
+                        android:textSize="15sp"
                         style="@style/TextAppearance.MaterialComponents.Headline4"
                         />
 

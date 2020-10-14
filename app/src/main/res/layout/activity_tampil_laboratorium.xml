@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        android:text="DAFTAR RAWAT JALAN"
+        android:text="DAFTAR LABORATORIUM"
         android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"

@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String norek = getIntent().getStringExtra("norekam");
+
         // inisialisasi BottomNavigaionView
         loadFragment(new homeFragment());
         BottomNavigationView bottomNavigationView = findViewById(R.id.bn_main);
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     private boolean loadFragment(Fragment fragment){
         if (fragment != null) {
-
+            
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fl_container, fragment)
                     .commit();

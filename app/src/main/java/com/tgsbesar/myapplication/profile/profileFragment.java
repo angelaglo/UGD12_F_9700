@@ -27,7 +27,10 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.tgsbesar.myapplication.R;
+import com.tgsbesar.myapplication.database.Preferences;
+import com.tgsbesar.myapplication.model.user;
 import com.tgsbesar.myapplication.registerLogin.Register;
+import com.tgsbesar.myapplication.splashScreen;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -53,8 +56,7 @@ public class profileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-
-
+        Preferences preferences = new Preferences(profileFragment.this.getContext());
 
         //open camera for profile pict
         btn_openCam=view.findViewById(R.id.btn_image);
@@ -96,6 +98,7 @@ public class profileFragment extends Fragment {
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                preferences.setKeyNorm("");
                 Intent intent = new Intent(getActivity(), Register.class);
                 startActivity(intent);
             }
@@ -147,7 +150,6 @@ public class profileFragment extends Fragment {
             alamat = preferences.getString("alamat","");
             umur= preferences.getString("umur","");
             noTelp=preferences.getString("noTelp", "");
-
         }
     }
 

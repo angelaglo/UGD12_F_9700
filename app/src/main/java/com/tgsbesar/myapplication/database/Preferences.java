@@ -10,22 +10,18 @@ public class Preferences {
     private Context context;
     private SharedPreferences shared;
 
-    private static SharedPreferences getSharedPreference(Context context){
-        return PreferenceManager.getDefaultSharedPreferences(context);
-    }
-
     public Preferences(Context context){
         this.context=context;
         this.shared = this.context.getSharedPreferences(SHARED_PREF,Context.MODE_PRIVATE);
     }
 
-    public Boolean getKeyNorm(){
-        return getSharedPreference(context).getBoolean(KEY_NORM,false);
+    public String getKeyNorm(){
+        return shared.getString(KEY_NORM,"");
     }
 
-    public void setKeyNorm(String noRM, boolean b){
-        SharedPreferences.Editor editor = getSharedPreference(context).edit();
-        editor.putBoolean(KEY_NORM,false);
+    public void setKeyNorm(String norm){
+        SharedPreferences.Editor editor = shared.edit();
+        editor.putString(KEY_NORM,norm);
         editor.apply();
     }
 
