@@ -149,6 +149,13 @@
                 android:layout_marginTop="16dp"
                 android:id="@+id/btn_save"
                 android:text="Save"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/btn_logout"
+                    android:text="LOGOUT"/>
             </LinearLayout>
 
 

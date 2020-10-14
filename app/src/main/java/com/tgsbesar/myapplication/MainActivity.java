@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.ListFragment;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -33,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         // inisialisasi BottomNavigaionView
         loadFragment(new homeFragment());
@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     private boolean loadFragment(Fragment fragment){
         if (fragment != null) {
+
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fl_container, fragment)
                     .commit();

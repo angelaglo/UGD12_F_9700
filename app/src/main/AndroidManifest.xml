@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.tgsbesar.myapplication">
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,63 +16,68 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <!-- Home -->
+        <activity android:name=".registerLogin.Login"></activity>
+        <activity android:name=".registerLogin.Register" /> <!-- Home -->
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
             <!-- Hapus Intent filter MainActivity -->
         </activity>
         <activity android:name=".profile.cameraActivity" />
         <activity android:name=".navigation.lokasiRS" /> <!-- Menu Rawat Inap -->
-        <activity android:name=".menu_rawatInap.tampilRawatInap"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"></activity>
-        <activity android:name=".menu_rawatInap.daftarRawatInap"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"/>
-        <activity android:name=".menu_rawatInap.daftarRawatInapNext"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"/>
-        <!-- Menu Rawat Jalan -->
-        <activity android:name=".menu_rawatJalan.rawatJalan"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"/>
-        <activity android:name=".menu_rawatJalan.Tampil_Dokter"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"/>
-        <activity android:name=".menu_rawatJalan.tampilRawatJalan"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"/>
-        <activity android:name=".menu_rawatJalan.Input"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"/>
-        <!-- Menu Lab -->
-        <activity android:name=".menu_laboratorium.laboratoriumNextActivity"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"/>
-        <activity android:name=".menu_laboratorium.tampilLaboratorium"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"/>
-        <activity android:name=".menu_laboratorium.recyclerViewLaboratorium"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"/>
-        <activity android:name=".menu_laboratorium.laboratoriumActivity"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"/> <!-- Splash screen -->
+        <activity
+            android:name=".menu_rawatInap.tampilRawatInap"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+        <activity
+            android:name=".menu_rawatInap.daftarRawatInap"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+        <activity
+            android:name=".menu_rawatInap.daftarRawatInapNext"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" /> <!-- Menu Rawat Jalan -->
+        <activity
+            android:name=".menu_rawatJalan.rawatJalan"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+        <activity
+            android:name=".menu_rawatJalan.Tampil_Dokter"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+        <activity
+            android:name=".menu_rawatJalan.tampilRawatJalan"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+        <activity
+            android:name=".menu_rawatJalan.Input"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" /> <!-- Menu Lab -->
+        <activity
+            android:name=".menu_laboratorium.laboratoriumNextActivity"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+        <activity
+            android:name=".menu_laboratorium.tampilLaboratorium"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+        <activity
+            android:name=".menu_laboratorium.recyclerViewLaboratorium"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".menu_laboratorium.laboratoriumActivity"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" /> <!-- Splash screen -->
         <activity
             android:name=".splashScreen"
-            android:theme="@style/SplashTheme"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden">
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service android:name=".MessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
     </application>
-
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CAMERA" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
