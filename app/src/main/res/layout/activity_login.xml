@@ -19,7 +19,7 @@
         android:id="@+id/layout_rmLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="No Rekam Medis"
+        android:hint="Email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
