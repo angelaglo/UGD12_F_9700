@@ -61,7 +61,6 @@ public class profileFragment extends Fragment {
         radioGroup.setOnCheckedChangeListener(radioGrouoOnCheckedListener);
         btn_logout =view.findViewById(R.id.btn_logout);
 
-        userSearch();
         //open camera for profile pict
         btn_openCam=view.findViewById(R.id.btn_image);
         btn_openCam.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +80,7 @@ public class profileFragment extends Fragment {
                 {
                     return;
                 }else{
-                    updateUser();
+
                 }
             }
         });
@@ -89,44 +88,13 @@ public class profileFragment extends Fragment {
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                preferences.setKeyNorm("");
+
                 Intent intent = new Intent(getActivity(), Register.class);
                 startActivity(intent);
             }
         });
 
         return view;
-    }
-
-    private void updateUser() {
-        final String fullname = nama_input.getText().toString();
-        final String umur = umur_input.getText().toString();
-        final int jeniskelamin = checkedIndex;
-        final String nohp = noTelp_input.getText().toString();
-        final String alamat = alamat_input.getText().toString();
-
-
-        class updateuser extends AsyncTask<Void, Void, User> {
-
-            @Override
-            protected User doInBackground(Void... voids) {
-
-                DatabaseClient.getInstance(getContext()).getDatabaseUser()
-                        .userDao()
-                        .update(noRM, fullname, umur, jeniskelamin, nohp, alamat);
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(User user){
-                super.onPostExecute(user);
-                Toast.makeText(getContext(), "User saved", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        updateuser updateuser = new updateuser();
-        updateuser.execute();
-
     }
 
     RadioGroup.OnCheckedChangeListener radioGrouoOnCheckedListener = new RadioGroup.OnCheckedChangeListener() {
@@ -188,32 +156,4 @@ public class profileFragment extends Fragment {
         return result;
     }
 
-    private void userSearch() {
-
-        class UserUpdate extends AsyncTask<Void, Void, User> {
-
-            @Override
-            protected User doInBackground(Void... voids) {
-                User user = DatabaseClient.getInstance(getContext())
-                        .getDatabaseUser()
-                        .userDao()
-                        .search(noRM);
-                return user;
-            }
-
-            @Override
-            protected void onPostExecute(User user){
-                super.onPostExecute(user);
-                nama_input.setText(user.getFullname());
-                umur_input.setText(user.getUmur());
-                ((RadioButton)radioGroup.getChildAt(user.jeniskelamin)).setChecked(true);
-                alamat_input.setText(user.getAlamat());
-                noTelp_input.setText(user.getNohp());
-                alamat_input.setText(user.getAlamat());
-            }
-        }
-
-        UserUpdate log = new UserUpdate();
-        log.execute();
-    }
 }

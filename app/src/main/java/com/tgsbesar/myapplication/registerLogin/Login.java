@@ -1,5 +1,6 @@
 package com.tgsbesar.myapplication.registerLogin;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -15,8 +16,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.tgsbesar.myapplication.MainActivity;
 import com.tgsbesar.myapplication.R;
 import com.tgsbesar.myapplication.database.AppDatabase;
@@ -32,6 +37,7 @@ public class Login extends AppCompatActivity {
     private TextView registernext;
     private Button login;
     public static final String NORM = "norm";
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,7 @@ public class Login extends AppCompatActivity {
 
         registernext = findViewById(R.id.toRegister);
 
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,7 +62,26 @@ public class Login extends AppCompatActivity {
                 {
                     return;
                 }else{
-                    userLogin();
+                    String email = txtRMLogin.getText().toString();
+                    String password = txtPassLogin.getText().toString();
+
+                    firebaseAuth = FirebaseAuth.getInstance();
+                    firebaseAuth.signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if(task.isSuccessful()){
+                                        if(firebaseAuth.getCurrentUser().isEmailVerified()){
+                                            Intent i = new Intent(Login.this, MainActivity.class);
+                                            startActivity(i);
+                                        }else{
+                                            Toast.makeText(getApplicationContext(), "Verifikasi email dulu bung", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }else{
+                                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                 }
             }
         });
@@ -90,43 +116,4 @@ public class Login extends AppCompatActivity {
 
         return result;
     }
-
-    private void userLogin() {
-        final String noRMLogin = txtRMLogin.getText().toString();
-        final String passLogin = txtPassLogin.getText().toString();
-
-        class UserLogin extends AsyncTask<Void, Void, User> {
-
-            @Override
-            protected User doInBackground(Void... voids) {
-                User user = DatabaseClient.getInstance(getApplicationContext())
-                        .getDatabaseUser()
-                        .userDao()
-                        .login(noRMLogin,passLogin);
-                return user;
-            }
-
-            @Override
-            protected void onPostExecute(User user){
-                super.onPostExecute(user);
-
-                if(user == null){
-                    Toast.makeText(getApplicationContext(),"No rekam medis / password salah", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Preferences preferences = new Preferences(Login.this.getApplicationContext());
-                    preferences.setKeyNorm(user.getNoRM());
-                    Toast.makeText(getApplicationContext(),"Selamat datang, "+noRMLogin, Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Login.this, MainActivity.class);
-                    intent.putExtra("norekam",user.getNoRM());
-                    startActivity(intent);
-                }
-            }
-        }
-
-        UserLogin log = new UserLogin();
-        log.execute();
-    }
-
-
 }
