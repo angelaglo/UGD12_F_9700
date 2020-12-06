@@ -7,9 +7,6 @@ import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.tgsbesar.myapplication.R;
-import com.tgsbesar.myapplication.database.Preferences;
-import com.tgsbesar.myapplication.registerLogin.Login;
 import com.tgsbesar.myapplication.registerLogin.Register;
 
 public class splashScreen extends AppCompatActivity {

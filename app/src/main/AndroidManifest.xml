@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".registerLogin.Login"></activity>
+        <activity android:name=".UnitTest.Login"></activity>
         <activity android:name=".registerLogin.Register" /> <!-- Home -->
         <activity
             android:name=".MainActivity"

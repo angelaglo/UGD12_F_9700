@@ -4,10 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,8 +19,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.tgsbesar.myapplication.R;
-import com.tgsbesar.myapplication.database.DatabaseClient;
-import com.tgsbesar.myapplication.database.User;
+import com.tgsbesar.myapplication.UnitTest.Login;
 
 public class Register extends AppCompatActivity {
 
@@ -96,7 +93,7 @@ public class Register extends AppCompatActivity {
         loginNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Register.this,Login.class);
+                Intent intent = new Intent(Register.this, Login.class);
                 startActivity(intent);
             }
         });
